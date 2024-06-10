@@ -93,7 +93,7 @@ const fetchDataAndProcess = async () => {
     console.log('Connected to MongoDB');
     const db = client.db(dbName);
 
-    for (let productId = 40000 ; productId < 80000; productId++) {
+    for (let productId = 43667  ; productId < 30000; productId++) {
       try {
         const response = await axios(generateRequestOptions(productId));
         const productData = extractProductData(response.data);
@@ -104,7 +104,7 @@ const fetchDataAndProcess = async () => {
       } catch (error) {
         console.error(`Error fetching data for product ID ${productId}:`, error);
       } finally {
-        await new Promise(resolve => setTimeout(resolve, 300));
+        await new Promise(resolve => setTimeout(resolve, 10));
       }
     }
   } catch (error) {
